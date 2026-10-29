@@ -6,7 +6,7 @@ export const settings = {
   secretCode: '071102', // تاريخ الميلاد بصيغة DDMMYY؛ أبقه نصًا لحفظ الصفر الأول.
   entryPrompt: 'فيه تاريخ غيّر العالم للأجمل… تتذكرينه؟',
   entrySuccess: '7 نوفمبر… اليومم اللي ولدتت فيه امولييي الحلوة',
-  entryError: 'مو هذا التاريخ يا جميلة، حاولي مرة ثانية ♡',
+  entryError: 'مو هذا التاريخ يا حلوة، حاولي مرة ثانية ♡',
   receptionTitle: 'كلللل عام وانتي بخيير يا حبيبتتتت عمريييي',
   welcomeText: 'سويت لك شيء بسيط ان شاءالله يفرحككك\nافتحي القفل عشان تبدا اللعبة',
   letterTitle: 'كلمات لك وحدك',
@@ -17,8 +17,8 @@ export const settings = {
   musicPath: '', // ضع الملف داخل public/music ثم اكتب /music/اسم-الملف.mp3
   externalGiftUrl: '', // رابط كامل يبدأ بـ https://؛ اتركه فارغًا حتى تجهز المفاجأة.
   giftCards: {
-    letter: { title: 'رسالتي لك', description: 'كلمات خبأتها لك بين السطور' },
-    music: { title: 'أغنيتنا', description: 'لحن يشبه لحظاتنا الجميلة' },
-    external: { title: 'مفاجأة لك', description: 'تفصيل أخير، من أجلك وحدك' }
+    letter: { title: 'رساله بسيطه من قلبيي ', description: 'من زماننن عن التعبيررر ' },
+    music: { title: 'أغنيتنا', description: 'يااا ويلك ماتسمعينهاا كاملة' },
+    external: { title: 'لا تفتحينها الا معيي', description: 'وششش تتوقعينننن' }
   }
 };
