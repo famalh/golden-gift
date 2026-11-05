@@ -1,14 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import { JSDOM } from 'jsdom';
+import { JSDOM, VirtualConsole } from 'jsdom';
 import { settings } from '../src/settings.js';
+import { validateExternalUrl } from '../src/logic.js';
 
 test('six-slot entry, keyboard, error, celebration, gifts and return navigation', async () => {
   const assets = new URL('../dist/assets/', import.meta.url);
   const bundle = fs.readdirSync(assets).find(name => name.endsWith('.js'));
   assert.ok(bundle, 'run npm run build before the DOM test');
-  const dom = new JSDOM('<div id="root"></div>', { url: 'http://localhost/', runScripts: 'outside-only', pretendToBeVisual: true });
+  const navigationErrors = [];
+  const virtualConsole = new VirtualConsole();
+  virtualConsole.on('jsdomError', error => {
+    if (error.message.includes('navigation to another Document')) navigationErrors.push(error);
+    else throw error;
+  });
+  const dom = new JSDOM('<div id="root"></div>', { url: 'http://localhost/', runScripts: 'outside-only', pretendToBeVisual: true, virtualConsole });
   try {
     const { window } = dom;
     window.scrollTo = () => {};
@@ -61,7 +68,14 @@ test('six-slot entry, keyboard, error, celebration, gifts and return navigation'
     assert.ok(text().includes('لم تُضف الأغنية بعد'));
     await click('العودة إلى الهدايا'); await click(settings.giftCards.external.title);
     assert.ok(text().includes('جاهز تكتشف المفاجأة؟'));
-    await click('افتح مفاجأتك'); assert.ok(text().includes('المفاجأة لم تجهز بعد'));
+    assert.equal(navigationErrors.length, 0, 'opening the gift does not navigate before confirmation');
+    await click('افتح مفاجأتك');
+    const destination = validateExternalUrl(settings.externalGiftUrl);
+    if (destination.error) assert.ok(text().includes(destination.error));
+    else {
+      assert.equal(navigationErrors.length, 1, 'confirmation attempts document navigation in jsdom');
+      assert.ok(!text().includes('المفاجأة لم تجهز بعد'));
+    }
     window.history.back(); await wait(60);
     assert.equal(window.document.querySelectorAll('.gift-card').length, 3);
   } finally { dom.window.close(); }
