@@ -15,7 +15,7 @@ export const settings = {
   songName: 'أغنيتنا',
   artistName: '', // اختياري
   musicPath: '', // ضع الملف داخل public/music ثم اكتب /music/اسم-الملف.mp3
-  externalGiftUrl: '', // رابط كامل يبدأ بـ https://؛ اتركه فارغًا حتى تجهز المفاجأة.
+  externalGiftUrl: 'https://amalportfolo.vercel.app/', // رابط كامل يبدأ بـ https://؛ اتركه فارغًا حتى تجهز المفاجأة.
   giftCards: {
     letter: { title: 'رساله بسيطه من قلبيي ', description: 'من زماننن عن التعبيررر ' },
     music: { title: 'أغنيتنا', description: 'يااا ويلك ماتسمعينهاا كاملة' },
