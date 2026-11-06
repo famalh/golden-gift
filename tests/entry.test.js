@@ -65,7 +65,12 @@ test('six-slot entry, keyboard, error, celebration, gifts and return navigation'
     assert.equal(window.document.querySelectorAll('.gift-card').length, 3);
     await click(settings.giftCards.letter.title); assert.ok(text().includes(settings.letterContent));
     await click('العودة إلى الهدايا'); await click(settings.giftCards.music.title);
-    assert.ok(text().includes('لم تُضف الأغنية بعد'));
+    if (settings.musicPath) {
+      const audio = window.document.querySelector('audio');
+      assert.ok(audio, 'configured music renders an audio player');
+      assert.ok(audio.getAttribute('src').endsWith(settings.musicPath));
+      assert.ok(buttons().some(button => button.textContent.includes('تشغيل الأغنية')));
+    } else assert.ok(text().includes('لم تُضف الأغنية بعد'));
     await click('العودة إلى الهدايا'); await click(settings.giftCards.external.title);
     assert.ok(text().includes('جاهزة تفتحينهااا'));
     assert.equal(navigationErrors.length, 0, 'opening the gift does not navigate before confirmation');
