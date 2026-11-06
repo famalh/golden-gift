@@ -12,13 +12,13 @@ export const settings = {
   letterTitle: 'كلمات لك وحدك',
   letterContent: 'من وين ابدددد ووش اخلييي اموليييي\nاول شيء والله اني احبك واموت فيك ويارب انه يكون اخررر بيرثدي بدونني\nيا احلى بنت فالعالللللممم اسسفف اذا كنت مقصررر الفترة الماضية معك لكنن احسك عاذرتني😁😁كل عام وانتي بخييييير 🎉🎉🎉🎉🎉🎉\nووجودكك معي في يومي له اثررر موب طبيعي\nاحببببك مره',
   closingPhrase: 'بكل الود، دائمًا',
-  songName: 'أغنيتنا',
+  songName: 'اهداء',
   artistName: '', // اختياري
   musicPath: '', // ضع الملف داخل public/music ثم اكتب /music/اسم-الملف.mp3
   externalGiftUrl: 'https://amalportfolo.vercel.app/', // رابط كامل يبدأ بـ https://؛ اتركه فارغًا حتى تجهز المفاجأة.
   giftCards: {
     letter: { title: 'رساله بسيطه من قلبيي ', description: 'من زماننن عن التعبيررر ' },
-    music: { title: 'أغنيتنا', description: 'يااا ويلك ماتسمعينهاا كاملة' },
+    music: { title: 'اهداء', description: 'يااا ويلك ماتسمعينهاا كاملة' },
     external: { title: 'لا تفتحينها الا معيي', description: 'وششش تتوقعينننن' }
   }
 };

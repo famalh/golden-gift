@@ -7,7 +7,7 @@ import './birthday.css';
 import Keypad from './components/Keypad';
 
 function GiftBox({ variant = 'external' }) {
-  return <div className={`gift-art ${variant}`} aria-hidden="true"><span className="spark one">✦</span><span className="spark two">✧</span><div className="bow"><i/><i/></div><div className="lid"/><div className="box"><span>{variant === 'letter' ? '♡' : variant === 'music' ? '♪' : '✧'}</span></div><div className="ribbon"/></div>;
+  return <div className={`gift-art gift-${variant}`} aria-hidden="true"><span className="spark one">✦</span><span className="spark two">✧</span><div className="bow"><i/><i/></div><div className="lid"/><div className="box"><span>{variant === 'letter' ? '♡' : variant === 'music' ? '♪' : '✧'}</span></div><div className="ribbon"/></div>;
 }
 
 function Music() {
@@ -35,7 +35,7 @@ function ExternalGift() {
     if (result.error) setError(result.error);
     else window.location.assign(result.url);
   }
-  return <><GiftBox/><h1>جاهز تكتشف المفاجأة؟</h1><p>باقي لك شيء واحد أعددته لك</p><button className="primary" onClick={open}>افتح مفاجأتك <span>←</span></button><p className="message" role="status">{error}</p></>;
+  return <><GiftBox/><h1>جاهزة تفتحينهااا</h1><button className="primary" onClick={open}>افتحيها <span>←</span></button><p className="message" role="status">{error}</p></>;
 }
 
 function App() {

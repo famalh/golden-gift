@@ -67,9 +67,9 @@ test('six-slot entry, keyboard, error, celebration, gifts and return navigation'
     await click('العودة إلى الهدايا'); await click(settings.giftCards.music.title);
     assert.ok(text().includes('لم تُضف الأغنية بعد'));
     await click('العودة إلى الهدايا'); await click(settings.giftCards.external.title);
-    assert.ok(text().includes('جاهز تكتشف المفاجأة؟'));
+    assert.ok(text().includes('جاهزة تفتحينهااا'));
     assert.equal(navigationErrors.length, 0, 'opening the gift does not navigate before confirmation');
-    await click('افتح مفاجأتك');
+    await click('افتحيها');
     const destination = validateExternalUrl(settings.externalGiftUrl);
     if (destination.error) assert.ok(text().includes(destination.error));
     else {
